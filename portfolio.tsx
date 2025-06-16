@@ -7,9 +7,15 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Linkedin, MapPin, Phone, Download } from "lucide-react"
 import { jsPDF } from "jspdf"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Component() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   const skills = {
     "Programming Languages": [
       { name: "Python", color: "bg-blue-600" },
@@ -336,35 +342,56 @@ export default function Component() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Left Profile Section */}
-          <div className="lg:col-span-2 space-y-6 lg:sticky lg:top-8 lg:h-screen lg:overflow-y-auto">
+          <div
+            className={`lg:col-span-2 space-y-6 lg:sticky lg:top-8 lg:h-screen lg:overflow-y-auto transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+          >
             <div className="space-y-6">
               <div className="text-left space-y-4">
-                <div className="relative mr-auto h-52 w-52">
-                  <Image src="/profile1.jpg" alt="Marc Melgar" fill className="rounded-full object-cover" />
+                <div
+                  className={`relative mr-auto h-52 w-52 transition-all duration-1000 delay-300 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+                >
+                  <Image
+                    src="/profile1.jpg"
+                    alt="Marc Melgar"
+                    fill
+                    className="rounded-full object-cover shadow-2xl hover:shadow-blue-500/20 transition-shadow duration-300"
+                  />
                 </div>
 
-                <div className="space-y-2">
-                  <h1 className="font-bold text-5xl">Marc Melgar</h1>
+                <div
+                  className={`space-y-2 transition-all duration-1000 delay-500 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                >
+                  <h1 className="font-bold text-5xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent animate-pulse mx-0 my-0 p-0 py-2">
+                    Marc Melgar
+                  </h1>
                   <p className="text-gray-400">Computer Engineer</p>
 
                   <div className="flex items-center gap-2 text-sm text-gray-400 justify-start">
                     <MapPin className="w-4 h-4" />
                     <span>Philippines</span>
-                    <span className="text-lg">🇵🇭</span>
+                    <span className="text-lg animate-bounce">🇵🇭</span>
                   </div>
                 </div>
 
-                <div className="inline-block px-3 py-1 bg-green-600 text-white text-sm rounded-full">Available</div>
+                <div
+                  className={`inline-block px-3 py-1 bg-green-600 text-white text-sm rounded-full animate-pulse transition-all duration-1000 delay-700 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+                >
+                  Available
+                </div>
 
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p
+                  className={`text-sm text-gray-300 leading-relaxed transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                >
                   Computer Engineering with a focus on development, web design, and leadership.
                 </p>
 
-                <div className="flex justify-start gap-3 pt-4">
+                <div
+                  className={`flex justify-start gap-3 pt-4 transition-all duration-1000 delay-1100 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                >
                   <Button
                     variant="outline"
                     size="sm"
-                    className="bg-transparent border-gray-600 text-white hover:bg-gray-700 hover:border-blue-500 transition-colors"
+                    className="bg-transparent border-gray-600 text-white hover:bg-gray-700 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
                     onClick={() => {
                       window.open("/api/download-pdf", "_blank")
                     }}
@@ -375,7 +402,7 @@ export default function Component() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="hover:bg-gray-700"
+                    className="hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                     onClick={() => window.open("https://www.facebook.com/marc.melgar.92", "_blank")}
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -385,7 +412,7 @@ export default function Component() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="hover:bg-gray-700"
+                    className="hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                     onClick={() => window.open("https://www.linkedin.com/in/marc-melgar-88653b310", "_blank")}
                   >
                     <Linkedin className="w-4 h-4" />
@@ -393,10 +420,12 @@ export default function Component() {
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div
+                className={`space-y-4 transition-all duration-1000 delay-1300 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+              >
                 <h3 className="text-xl font-semibold">Want to Work Together?</h3>
                 <Button
-                  className="w-full bg-gray-700 hover:bg-gray-600"
+                  className="w-full bg-gray-700 hover:bg-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
                   onClick={() => {
                     const connectSection = document.getElementById("connect-section")
                     if (connectSection) {
@@ -404,25 +433,29 @@ export default function Component() {
                     }
                   }}
                 >
-                  Hire Me
+                  Contact Me  
                 </Button>
               </div>
             </div>
           </div>
 
           {/* Right Content Section */}
-          <div className="lg:col-span-3 space-y-8">
+          <div
+            className={`lg:col-span-3 space-y-8 transition-all duration-1000 delay-200 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
+          >
             {/* About Me */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">About Me</h2>
+            <section className="animate-fade-in-up">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                About Me
+              </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
+                <p className="hover:text-white transition-colors duration-300">
                   Hi, I'm a Computer Engineer passionate about building smart, connected systems. I've developed
                   sensor-based hardware, automated tasks with Python, and built API-powered dashboards. Backed by
                   certifications in AI, data analytics, and data center technologies, I create scalable, data-driven
                   solutions that bridge hardware and software.
                 </p>
-                <p>
+                <p className="hover:text-white transition-colors duration-300">
                   My expertise spans from low-level hardware integration to high-level software development, allowing me
                   to create comprehensive solutions that optimize both performance and user experience. I'm particularly
                   interested in IoT systems, data analytics, and automation technologies that can make a real-world
@@ -432,15 +465,24 @@ export default function Component() {
             </section>
 
             {/* Technical Skills */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">Technical Skills</h2>
+            <section className="animate-fade-in-up">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Technical Skills
+              </h2>
               <div className="space-y-6">
-                {Object.entries(skills).map(([category, skillList]) => (
-                  <div key={category}>
+                {Object.entries(skills).map(([category, skillList], categoryIndex) => (
+                  <div
+                    key={category}
+                    className={`transition-all duration-700 delay-${categoryIndex * 200} ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+                  >
                     <h3 className="text-xl font-semibold mb-3">{category}</h3>
                     <div className="flex flex-wrap gap-2">
-                      {skillList.map((skill) => (
-                        <Badge key={skill.name} className={`${skill.color} text-white hover:opacity-80 px-3 py-1`}>
+                      {skillList.map((skill, skillIndex) => (
+                        <Badge
+                          key={skill.name}
+                          className={`${skill.color} text-white hover:opacity-80 px-3 py-1 transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer`}
+                          style={{ animationDelay: `${skillIndex * 100}ms` }}
+                        >
                           {skill.name}
                         </Badge>
                       ))}
@@ -451,25 +493,33 @@ export default function Component() {
             </section>
 
             {/* Professional Experience */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">Professional Experience</h2>
+            <section className="animate-fade-in-up">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Professional Experience
+              </h2>
               <div className="space-y-6">
-                <div className="border-l-2 border-gray-700 pl-6 space-y-6">
-                  <div className="space-y-3">
+                <div className="border-l-2 border-gray-700 pl-6 space-y-6 hover:border-blue-500 transition-colors duration-300">
+                  <div className="space-y-3 hover:transform hover:translate-x-2 transition-transform duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                       <h3 className="text-xl font-semibold">Intern (OJT)</h3>
                       <span className="text-sm text-gray-400">May 2024 - August 2024</span>
                     </div>
                     <p className="text-gray-400">VERYFY</p>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-gray-300 leading-relaxed hover:text-white transition-colors duration-300">
                       This internship allowed me to merge creativity with functionality—transforming design concepts
                       into responsive web applications—and provided valuable experience in managing real-world
                       development workflows.
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <Badge className="bg-blue-600 text-white">Web Development</Badge>
-                      <Badge className="bg-green-600 text-white">Responsive Design</Badge>
-                      <Badge className="bg-purple-600 text-white">UI/UX Implementation</Badge>
+                      <Badge className="bg-blue-600 text-white hover:scale-110 transition-transform duration-300">
+                        Web Development
+                      </Badge>
+                      <Badge className="bg-green-600 text-white hover:scale-110 transition-transform duration-300">
+                        Responsive Design
+                      </Badge>
+                      <Badge className="bg-purple-600 text-white hover:scale-110 transition-transform duration-300">
+                        UI/UX Implementation
+                      </Badge>
                     </div>
                   </div>
                 </div>
@@ -477,15 +527,24 @@ export default function Component() {
             </section>
 
             {/* Featured Projects */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">Featured Projects</h2>
+            <section className="animate-fade-in-up">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Featured Projects
+              </h2>
               <div className="grid gap-6">
-                <div className="bg-gray-800 rounded-lg p-6 space-y-4">
-                  <div className="aspect-video relative rounded-lg overflow-hidden">
-                    <Image src="/bote-project.png" alt="BOTE Project Team" fill className="object-cover" />
+                <div className="bg-gray-800 rounded-lg p-6 space-y-4 hover:bg-gray-750 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10">
+                  <div className="aspect-video relative rounded-lg overflow-hidden group">
+                    <Image
+                      src="/bote-project.png"
+                      alt="BOTE Project Team"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                   </div>
-                  <h3 className="text-xl font-semibold">BOTE: Bin Optimizer for Trash and Ecology</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-semibold hover:text-blue-400 transition-colors duration-300">
+                    BOTE: Bin Optimizer for Trash and Ecology
+                  </h3>
+                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
                     Developed "BOTE" (Bin Optimizer for Trash and Ecology), a prototype Reverse Vending Machine that
                     encourages recycling by accepting plastic bottles and metal cans in exchange for coins. Using Rapid
                     Application Development, the system integrates sensors, a crushing mechanism, and a coin dispenser
@@ -494,16 +553,24 @@ export default function Component() {
                     users and experts.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-blue-600 text-white">Hardware Integration</Badge>
-                    <Badge className="bg-green-600 text-white">Sensor Technology</Badge>
-                    <Badge className="bg-red-600 text-white">Automation</Badge>
-                    <Badge className="bg-purple-600 text-white">Environmental Tech</Badge>
+                    <Badge className="bg-blue-600 text-white hover:scale-110 transition-transform duration-300">
+                      Hardware Integration
+                    </Badge>
+                    <Badge className="bg-green-600 text-white hover:scale-110 transition-transform duration-300">
+                      Sensor Technology
+                    </Badge>
+                    <Badge className="bg-red-600 text-white hover:scale-110 transition-transform duration-300">
+                      Automation
+                    </Badge>
+                    <Badge className="bg-purple-600 text-white hover:scale-110 transition-transform duration-300">
+                      Environmental Tech
+                    </Badge>
                   </div>
                   <div className="flex gap-3">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-transparent border-gray-600 text-white hover:bg-gray-700"
+                      className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                     >
                       View Details
                     </Button>
@@ -513,125 +580,87 @@ export default function Component() {
             </section>
 
             {/* Certifications */}
-            <section>
-              <h2 className="text-3xl font-bold mb-6">Certifications</h2>
+            <section className="animate-fade-in-up">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Certifications
+              </h2>
               <div className="grid md:grid-cols-1 gap-6">
-                <div className="bg-gray-800 rounded-lg p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-16 h-16 relative">
-                      <Image
-                        src="/ai-fundamentals-badge.png"
-                        alt="AI Fundamentals Badge"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <span className="text-sm text-gray-400">June 2025</span>
-                  </div>
-                  <h3 className="text-xl font-semibold">AI Fundamentals with IBM SkillsBuild</h3>
-                  <p className="text-gray-400">Cisco</p>
-                  <p className="text-gray-300">
-                    Successfully completed the AI Fundamentals course and achieved student level credentials.
-                    Demonstrates knowledge of basic artificial intelligence concepts, natural language processing,
-                    computer vision, deep learning, and AI ethics.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-blue-600 text-white">Artificial Intelligence</Badge>
-                    <Badge className="bg-green-600 text-white">Machine Learning</Badge>
-                    <Badge className="bg-purple-600 text-white">AI Ethics</Badge>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent border-gray-600 text-white hover:bg-gray-700"
-                    onClick={() =>
-                      window.open(
-                        "https://www.credly.com/badges/c2bb9ed3-50ed-4576-9f6a-a96f8348182f/linked_in_profile",
-                        "_blank",
-                      )
-                    }
+                {[
+                  {
+                    image: "/ai-fundamentals-badge.png",
+                    date: "June 2025",
+                    title: "AI Fundamentals with IBM SkillsBuild",
+                    issuer: "Cisco",
+                    description:
+                      "Successfully completed the AI Fundamentals course and achieved student level credentials. Demonstrates knowledge of basic artificial intelligence concepts, natural language processing, computer vision, deep learning, and AI ethics.",
+                    badges: ["Artificial Intelligence", "Machine Learning", "AI Ethics"],
+                    colors: ["bg-blue-600", "bg-green-600", "bg-purple-600"],
+                    link: "https://www.credly.com/badges/c2bb9ed3-50ed-4576-9f6a-a96f8348182f/linked_in_profile",
+                  },
+                  {
+                    image: "/data-center-badge.png",
+                    date: "November 2024",
+                    title: "Certified Data Center Technician (CDCT)",
+                    issuer: "East West International Educational Specialists, Inc",
+                    description:
+                      "Foundational course covering datacenter operations, architecture, basic networking, power and cooling systems, and introduction to cloud computing. Provides groundwork for data center management career.",
+                    badges: ["Data Center Operations", "Networking", "Infrastructure"],
+                    colors: ["bg-blue-600", "bg-green-600", "bg-red-600"],
+                    link: "https://www.credly.com/badges/4f588a1b-8c7f-4c7a-9aaf-5e7d7543fab9/linked_in_profile",
+                  },
+                  {
+                    image: "/data-analytics-badge.png",
+                    date: "September 2024",
+                    title: "Data Analytics Essentials",
+                    issuer: "Cisco",
+                    description:
+                      "Comprehensive understanding of data analytics process, data characteristics, transformation techniques, and analysis using statistical methods. Completed hands-on activities using Excel, SQL, Tableau and other tools.",
+                    badges: ["Data Analytics", "SQL", "Tableau"],
+                    colors: ["bg-blue-600", "bg-green-600", "bg-yellow-600"],
+                    link: "https://www.credly.com/badges/4f2190d3-1574-4c62-9c9e-98979f697bb0/linked_in_profile",
+                  },
+                ].map((cert, index) => (
+                  <div
+                    key={cert.title}
+                    className={`bg-gray-800 rounded-lg p-6 space-y-4 hover:bg-gray-750 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    style={{ transitionDelay: `${index * 200}ms` }}
                   >
-                    View Certificate
-                  </Button>
-                </div>
-
-                <div className="bg-gray-800 rounded-lg p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-16 h-16 relative">
-                      <Image
-                        src="/data-center-badge.png"
-                        alt="Data Center Technician Badge"
-                        fill
-                        className="object-contain"
-                      />
+                    <div className="flex items-center justify-between">
+                      <div className="w-16 h-16 relative group">
+                        <Image
+                          src={cert.image || "/placeholder.svg"}
+                          alt={`${cert.title} Badge`}
+                          fill
+                          className="object-contain transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                      <span className="text-sm text-gray-400">{cert.date}</span>
                     </div>
-                    <span className="text-sm text-gray-400">November 2024</span>
-                  </div>
-                  <h3 className="text-xl font-semibold">Certified Data Center Technician (CDCT)</h3>
-                  <p className="text-gray-400">East West International Educational Specialists, Inc</p>
-                  <p className="text-gray-300">
-                    Foundational course covering datacenter operations, architecture, basic networking, power and
-                    cooling systems, and introduction to cloud computing. Provides groundwork for data center management
-                    career.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-blue-600 text-white">Data Center Operations</Badge>
-                    <Badge className="bg-green-600 text-white">Networking</Badge>
-                    <Badge className="bg-red-600 text-white">Infrastructure</Badge>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent border-gray-600 text-white hover:bg-gray-700"
-                    onClick={() =>
-                      window.open(
-                        "https://www.credly.com/badges/4f588a1b-8c7f-4c7a-9aaf-5e7d7543fab9/linked_in_profile",
-                        "_blank",
-                      )
-                    }
-                  >
-                    View Certificate
-                  </Button>
-                </div>
-
-                <div className="bg-gray-800 rounded-lg p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-16 h-16 relative">
-                      <Image
-                        src="/data-analytics-badge.png"
-                        alt="Data Analytics Essentials Badge"
-                        fill
-                        className="object-contain"
-                      />
+                    <h3 className="text-xl font-semibold hover:text-blue-400 transition-colors duration-300">
+                      {cert.title}
+                    </h3>
+                    <p className="text-gray-400">{cert.issuer}</p>
+                    <p className="text-gray-300 hover:text-white transition-colors duration-300">{cert.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {cert.badges.map((badge, badgeIndex) => (
+                        <Badge
+                          key={badge}
+                          className={`${cert.colors[badgeIndex]} text-white hover:scale-110 transition-transform duration-300`}
+                        >
+                          {badge}
+                        </Badge>
+                      ))}
                     </div>
-                    <span className="text-sm text-gray-400">September 2024</span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
+                      onClick={() => window.open(cert.link, "_blank")}
+                    >
+                      View Certificate
+                    </Button>
                   </div>
-                  <h3 className="text-xl font-semibold">Data Analytics Essentials</h3>
-                  <p className="text-gray-400">Cisco</p>
-                  <p className="text-gray-300">
-                    Comprehensive understanding of data analytics process, data characteristics, transformation
-                    techniques, and analysis using statistical methods. Completed hands-on activities using Excel, SQL,
-                    Tableau and other tools.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-blue-600 text-white">Data Analytics</Badge>
-                    <Badge className="bg-green-600 text-white">SQL</Badge>
-                    <Badge className="bg-yellow-600 text-white">Tableau</Badge>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent border-gray-600 text-white hover:bg-gray-700"
-                    onClick={() =>
-                      window.open(
-                        "https://www.credly.com/badges/4f2190d3-1574-4c62-9c9e-98979f697bb0/linked_in_profile",
-                        "_blank",
-                      )
-                    }
-                  >
-                    View Certificate
-                  </Button>
-                </div>
+                ))}
               </div>
 
               <div className="text-center mt-6">
@@ -639,7 +668,7 @@ export default function Component() {
                   href="https://www.linkedin.com/in/marc-melgar-88653b310/details/certifications/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300"
+                  className="text-blue-400 hover:text-blue-300 transition-all duration-300 hover:scale-105 inline-block"
                 >
                   View More Certifications →
                 </a>
@@ -647,10 +676,12 @@ export default function Component() {
             </section>
 
             {/* Contact */}
-            <section id="connect-section">
-              <h2 className="text-3xl font-bold mb-6">Connect With Me</h2>
-              <div className="bg-gray-800 rounded-lg p-6 space-y-6">
-                <p className="text-gray-300 leading-relaxed">
+            <section id="connect-section" className="animate-fade-in-up">
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Connect With Me
+              </h2>
+              <div className="bg-gray-800 rounded-lg p-6 space-y-6 hover:bg-gray-750 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10">
+                <p className="text-gray-300 leading-relaxed hover:text-white transition-colors duration-300">
                   Feel free to reach out to me via email or phone. You can also connect with me on LinkedIn. I'm always
                   interested in discussing new opportunities and exciting projects.
                 </p>
@@ -659,15 +690,15 @@ export default function Component() {
                   <div className="space-y-4">
                     <h3 className="text-lg font-semibold">Contact Information</h3>
                     <div className="space-y-3">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 cursor-pointer">
                         <Mail className="w-5 h-5 text-gray-400" />
                         <span className="text-gray-300">marcmelgar419@gmail.com</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 cursor-pointer">
                         <Phone className="w-5 h-5 text-gray-400" />
                         <span className="text-gray-300">+63 938 250 2648</span>
                       </div>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 cursor-pointer">
                         <Linkedin className="w-5 h-5 text-gray-400" />
                         <span className="text-gray-300">linkedin.com/in/marc-melgar-88653b310</span>
                       </div>
@@ -677,7 +708,7 @@ export default function Component() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="bg-transparent border-gray-600 text-white hover:bg-gray-700"
+                        className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                         onClick={() => window.open("https://www.facebook.com/marc.melgar.92", "_blank")}
                       >
                         <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -688,7 +719,7 @@ export default function Component() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="bg-transparent border-gray-600 text-white hover:bg-gray-700"
+                        className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
                         onClick={() => window.open("https://www.linkedin.com/in/marc-melgar-88653b310", "_blank")}
                       >
                         <Linkedin className="w-4 h-4 mr-2" />
@@ -707,7 +738,7 @@ export default function Component() {
                         onChange={handleInputChange}
                         placeholder="Your Name"
                         required
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-gray-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300"
                       />
                       <input
                         type="email"
@@ -716,7 +747,7 @@ export default function Component() {
                         onChange={handleInputChange}
                         placeholder="Your Email"
                         required
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-gray-500"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300"
                       />
                       <textarea
                         name="message"
@@ -725,20 +756,22 @@ export default function Component() {
                         placeholder="Your Message"
                         rows={4}
                         required
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-gray-500 resize-none"
+                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none transition-all duration-300"
                       />
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gray-700 hover:bg-gray-600 disabled:opacity-50"
+                        className="w-full bg-gray-700 hover:bg-gray-600 disabled:opacity-50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </Button>
                       {submitStatus === "success" && (
-                        <p className="text-green-400 text-sm">Message sent successfully!</p>
+                        <p className="text-green-400 text-sm animate-fade-in">Message sent successfully!</p>
                       )}
                       {submitStatus === "error" && (
-                        <p className="text-red-400 text-sm">Failed to send message. Please try again.</p>
+                        <p className="text-red-400 text-sm animate-fade-in">
+                          Failed to send message. Please try again.
+                        </p>
                       )}
                     </form>
                   </div>
