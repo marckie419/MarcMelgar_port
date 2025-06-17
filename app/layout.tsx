@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     apple: [{ url: "/favicon.svg", sizes: "180x180", type: "image/svg+xml" }],
   },
   metadataBase: new URL("https://your-domain.com"), // Replace with your actual domain
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
