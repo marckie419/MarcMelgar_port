@@ -433,7 +433,7 @@ export default function Component() {
                     }
                   }}
                 >
-                  Contact Me  
+                  Contact Me
                 </Button>
               </div>
             </div>
@@ -571,6 +571,52 @@ export default function Component() {
                       variant="outline"
                       size="sm"
                       className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </div>
+                {/* AniLink Project Card */}
+                <div
+                  className="bg-gray-800 rounded-lg p-6 space-y-4 hover:bg-gray-750 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+                >
+                  <div
+                    className="aspect-video relative rounded-lg overflow-hidden group cursor-pointer"
+                    onClick={() => window.open("https://anilink-ph.netlify.app/", "_blank")}
+                  >
+                    <Image
+                      src="/anilink.png"
+                      alt="AniLink Platform"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold hover:text-yellow-400 transition-colors duration-300">
+                    AniLink: Empowering Filipino Farmers
+                  </h3>
+                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
+                    AniLink is a web-based platform that connects Filipino farmers directly with buyers to sell their harvested palay (unmilled rice). The platform aims to promote fair pricing, reduce middlemen, and empower local agriculture through digital innovation.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="bg-yellow-500 text-white hover:scale-110 transition-transform duration-300">
+                      Web Platform
+                    </Badge>
+                    <Badge className="bg-green-600 text-white hover:scale-110 transition-transform duration-300">
+                      Agriculture
+                    </Badge>
+                    <Badge className="bg-orange-500 text-white hover:scale-110 transition-transform duration-300">
+                      Fair Trade
+                    </Badge>
+                    <Badge className="bg-blue-500 text-white hover:scale-110 transition-transform duration-300">
+                      Digital Innovation
+                    </Badge>
+                  </div>
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
+                      onClick={() => window.open("https://anilink-ph.netlify.app/", "_blank")}
                     >
                       View Details
                     </Button>
