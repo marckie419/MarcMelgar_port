@@ -1,6 +1,6 @@
 Marc Melgar | Portfolio
 
-Welcome to my portfolio repository! I'm Marc R. Melgar, a Computer Engineering student passionate about building meaningful digital experiences—from web applications to systems that solve real-world problems. This repository showcases some of the projects I've worked on during my academic and personal journey.
+Welcome to my portfolio repository! I'm Marc R. Melgar, a Computer Engineering student passionate about building meaningful digital experiences from web applications to systems that solve real-world problems. This repository showcases some of the projects I've worked on during my academic and personal journey.
 
 🧠 About Me
 
