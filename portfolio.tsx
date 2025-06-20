@@ -338,104 +338,57 @@ export default function Component() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-[#111111] text-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-5 gap-8">
+        <div className="grid lg:grid-cols-5 gap-8 overflow-visible">
           {/* Left Profile Section */}
           <div
-            className={`lg:col-span-2 space-y-6 lg:sticky lg:top-8 lg:h-screen lg:overflow-y-auto transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
+            className={`lg:col-span-2 space-y-6 lg:sticky lg:top-8 lg:h-screen lg:overflow-y-auto lg:overflow-x-visible transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
           >
-            <div className="space-y-6">
-              <div className="text-left space-y-4">
-                <div
-                  className={`relative mr-auto h-52 w-52 transition-all duration-1000 delay-300 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-                >
-                  <Image
-                    src="/profile1.jpg"
-                    alt="Marc Melgar"
-                    fill
-                    className="rounded-full object-cover shadow-2xl hover:shadow-blue-500/20 transition-shadow duration-300"
-                  />
-                </div>
-
-                <div
-                  className={`space-y-2 transition-all duration-1000 delay-500 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-                >
-                  <h1 className="font-bold text-5xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent animate-pulse mx-0 my-0 p-0 py-2">
-                    Marc Melgar
-                  </h1>
-                  <p className="text-gray-400">Computer Engineer</p>
-
-                  <div className="flex items-center gap-2 text-sm text-gray-400 justify-start">
-                    <MapPin className="w-4 h-4" />
-                    <span>Philippines</span>
-                    <span className="text-lg animate-bounce">🇵🇭</span>
-                  </div>
-                </div>
-
-                <div
-                  className={`inline-block px-3 py-1 bg-green-600 text-white text-sm rounded-full animate-pulse transition-all duration-1000 delay-700 ease-out ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-                >
-                  Available
-                </div>
-
-                <p
-                  className={`text-sm text-gray-300 leading-relaxed transition-all duration-1000 delay-900 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-                >
-                  Computer Engineering with a focus on development, web design, and leadership.
-                </p>
-
-                <div
-                  className={`flex justify-start gap-3 pt-4 transition-all duration-1000 delay-1100 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-                >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-transparent border-gray-600 text-white hover:bg-gray-700 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
-                    onClick={() => {
-                      window.open("/api/download-pdf", "_blank")
-                    }}
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Resume
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="hover:bg-gray-700 transition-all duration-300 hover:scale-105"
-                    onClick={() => window.open("https://www.facebook.com/marc.melgar.92", "_blank")}
-                  >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                    </svg>
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="hover:bg-gray-700 transition-all duration-300 hover:scale-105"
-                    onClick={() => window.open("https://www.linkedin.com/in/marc-melgar-88653b310", "_blank")}
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </Button>
-                </div>
+            <div className="flex flex-col items-start w-full space-y-1 p-3">
+              <div className="relative h-52 w-52 mb-2">
+                <Image
+                  src="/profile1.jpg"
+                  alt="Marc Melgar"
+                  fill
+                  className="rounded-full object-cover shadow-2xl"
+                />
               </div>
-
-              <div
-                className={`space-y-4 transition-all duration-1000 delay-1300 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
-              >
-                <h3 className="text-xl font-semibold">Want to Work Together?</h3>
+              <h1 className="font-bold text-5xl text-white mb-0.5 text-left ">Marc Melgar</h1>
+              <p className="text-base text-gray-400 mb-0.5 text-left">Computer Engineer</p>
+              <div className="flex items-center gap-1 text-gray-400 text-sm mb-0.5">
+                <span className="text-gray-400"><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'><path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0' /></svg></span>
+                <span>Philippines</span>
+                <span className="text-xs ml-1">PH</span>
+              </div>
+              <span className="inline-block px-2 py-0.5 bg-green-600 text-white text-xs rounded mb-0.5">Available</span>
+              <p className="text-sm text-gray-300 mb-1 text-left">Computer Engineering with a focus on development, web design, and leadership.</p>
+              <div className="flex items-center gap-1 mb-1 mt-0.5">
                 <Button
-                  className="w-full bg-gray-700 hover:bg-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
+                  variant="outline"
+                  className="border border-white text-white bg-transparent rounded px-2 py-0.5 text-base h-8 min-w-[90px]"
                   onClick={() => {
-                    const connectSection = document.getElementById("connect-section")
-                    if (connectSection) {
-                      connectSection.scrollIntoView({ behavior: "smooth" })
-                    }
+                    window.open("/api/download-pdf", "_blank")
                   }}
                 >
-                  Contact Me
+                  <Download className="w-4 h-4 mr-2" />
+                  Resume
                 </Button>
+                <button className="bg-transparent text-gray-300 rounded p-1 flex items-center justify-center" onClick={() => window.open('https://www.facebook.com/marc.melgar.92', '_blank')}><svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg></button>
+                <button className="bg-transparent text-gray-300 rounded p-1 flex items-center justify-center" onClick={() => window.open('https://www.linkedin.com/in/marc-melgar-88653b310', '_blank')}><Linkedin className="w-5 h-5" /></button>
               </div>
+              <h3 className="text-xl font-semibold text-white mb-0.5 mt-1 text-left">Want to Work Together?</h3>
+              <Button
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-md px-4 py-2 shadow-md transition-all duration-300 hover:from-blue-500 hover:to-indigo-500 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                onClick={() => {
+                  const connectSection = document.getElementById("connect-section")
+                  if (connectSection) {
+                    connectSection.scrollIntoView({ behavior: "smooth" })
+                  }
+                }}
+              >
+                Get in Touch
+              </Button>
             </div>
           </div>
 
@@ -445,7 +398,7 @@ export default function Component() {
           >
             {/* About Me */}
             <section className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 About Me
               </h2>
               <div className="space-y-4 text-gray-300 leading-relaxed">
@@ -466,7 +419,7 @@ export default function Component() {
 
             {/* Technical Skills */}
             <section className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 Technical Skills
               </h2>
               <div className="space-y-6">
@@ -475,7 +428,7 @@ export default function Component() {
                     key={category}
                     className={`transition-all duration-700 delay-${categoryIndex * 200} ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
                   >
-                    <h3 className="text-xl font-semibold mb-3">{category}</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-white">{category}</h3>
                     <div className="flex flex-wrap gap-2">
                       {skillList.map((skill, skillIndex) => (
                         <Badge
@@ -494,14 +447,14 @@ export default function Component() {
 
             {/* Professional Experience */}
             <section className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 Professional Experience
               </h2>
               <div className="space-y-6">
                 <div className="border-l-2 border-gray-700 pl-6 space-y-6 hover:border-blue-500 transition-colors duration-300">
                   <div className="space-y-3 hover:transform hover:translate-x-2 transition-transform duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                      <h3 className="text-xl font-semibold">Intern (OJT)</h3>
+                      <h3 className="text-xl font-semibold text-white">Intern (OJT)</h3>
                       <span className="text-sm text-gray-400">May 2024 - August 2024</span>
                     </div>
                     <p className="text-gray-400">VERYFY</p>
@@ -528,11 +481,11 @@ export default function Component() {
 
             {/* Featured Projects */}
             <section className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 Featured Projects
               </h2>
               <div className="grid gap-6">
-                <div className="bg-gray-800 rounded-lg p-6 space-y-4 hover:bg-gray-750 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10">
+                <div className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10">
                   <div className="aspect-video relative rounded-lg overflow-hidden group">
                     <Image
                       src="/bote-project.png"
@@ -541,7 +494,7 @@ export default function Component() {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-white hover:text-blue-400 transition-colors duration-300">
                     BOTE: Bin Optimizer for Trash and Ecology
                   </h3>
                   <p className="text-gray-300 hover:text-white transition-colors duration-300">
@@ -578,7 +531,7 @@ export default function Component() {
                 </div>
                 {/* AniLink Project Card */}
                 <div
-                  className="bg-gray-800 rounded-lg p-6 space-y-4 hover:bg-gray-750 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+                  className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
                 >
                   <div
                     className="aspect-video relative rounded-lg overflow-hidden group cursor-pointer"
@@ -591,7 +544,7 @@ export default function Component() {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold hover:text-yellow-400 transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-white hover:text-yellow-400 transition-colors duration-300">
                     AniLink: Empowering Filipino Farmers
                   </h3>
                   <p className="text-gray-300 hover:text-white transition-colors duration-300">
@@ -627,7 +580,7 @@ export default function Component() {
 
             {/* Certifications */}
             <section className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 Certifications
               </h2>
               <div className="grid md:grid-cols-1 gap-6">
@@ -668,7 +621,7 @@ export default function Component() {
                 ].map((cert, index) => (
                   <div
                     key={cert.title}
-                    className={`bg-gray-800 rounded-lg p-6 space-y-4 hover:bg-gray-750 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    className={`bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                     style={{ transitionDelay: `${index * 200}ms` }}
                   >
                     <div className="flex items-center justify-between">
@@ -682,7 +635,7 @@ export default function Component() {
                       </div>
                       <span className="text-sm text-gray-400">{cert.date}</span>
                     </div>
-                    <h3 className="text-xl font-semibold hover:text-blue-400 transition-colors duration-300">
+                    <h3 className="text-xl font-semibold text-white hover:text-blue-400 transition-colors duration-300">
                       {cert.title}
                     </h3>
                     <p className="text-gray-400">{cert.issuer}</p>
@@ -723,10 +676,10 @@ export default function Component() {
 
             {/* Contact */}
             <section id="connect-section" className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-6 text-white">
                 Connect With Me
               </h2>
-              <div className="bg-gray-800 rounded-lg p-6 space-y-6 hover:bg-gray-750 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10">
+              <div className="bg-[#18191b] rounded-lg p-6 space-y-6 hover:bg-[#23262b] transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10">
                 <p className="text-gray-300 leading-relaxed hover:text-white transition-colors duration-300">
                   Feel free to reach out to me via email or phone. You can also connect with me on LinkedIn. I'm always
                   interested in discussing new opportunities and exciting projects.
@@ -734,7 +687,7 @@ export default function Component() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">Contact Information</h3>
+                    <h3 className="text-lg font-semibold text-white">Contact Information</h3>
                     <div className="space-y-3">
                       <div className="flex items-center gap-3 hover:text-blue-400 transition-colors duration-300 cursor-pointer">
                         <Mail className="w-5 h-5 text-gray-400" />
@@ -775,7 +728,7 @@ export default function Component() {
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">Quick Message</h3>
+                    <h3 className="text-lg font-semibold text-white">Quick Message</h3>
                     <form onSubmit={handleSubmit} className="space-y-3">
                       <input
                         type="text"
@@ -784,7 +737,7 @@ export default function Component() {
                         onChange={handleInputChange}
                         placeholder="Your Name"
                         required
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300"
+                        className="w-full px-3 py-2 bg-[#23262b] border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300"
                       />
                       <input
                         type="email"
@@ -793,7 +746,7 @@ export default function Component() {
                         onChange={handleInputChange}
                         placeholder="Your Email"
                         required
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300"
+                        className="w-full px-3 py-2 bg-[#23262b] border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300"
                       />
                       <textarea
                         name="message"
@@ -802,12 +755,12 @@ export default function Component() {
                         placeholder="Your Message"
                         rows={4}
                         required
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none transition-all duration-300"
+                        className="w-full px-3 py-2 bg-[#23262b] border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none transition-all duration-300"
                       />
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gray-700 hover:bg-gray-600 disabled:opacity-50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                        className="w-full bg-[#23262b] hover:bg-[#23262b] disabled:opacity-50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </Button>
@@ -824,9 +777,9 @@ export default function Component() {
                 </div>
               </div>
             </section>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div >
+        </div >
+      </div >
+    </div >
   )
 }
