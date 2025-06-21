@@ -368,7 +368,12 @@ export default function Component() {
                   variant="outline"
                   className="border border-white text-white bg-transparent rounded px-2 py-0.5 text-base h-8 min-w-[90px]"
                   onClick={() => {
-                    window.open("/api/download-pdf", "_blank")
+                    const link = document.createElement('a');
+                    link.href = '/resume.pdf';
+                    link.download = 'Marc_Melgar_Resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
                   }}
                 >
                   <Download className="w-4 h-4 mr-2" />
