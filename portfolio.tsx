@@ -459,7 +459,7 @@ export default function Component() {
                 <div className="border-l-2 border-gray-700 pl-6 space-y-6 hover:border-blue-500 transition-colors duration-300">
                   <div className="space-y-3 hover:transform hover:translate-x-2 transition-transform duration-300">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                      <h3 className="text-xl font-semibold text-white">Intern (OJT)</h3>
+                      <h3 className="text-xl font-semibold text-white">Web Developer Intern (OJT)</h3>
                       <span className="text-sm text-gray-400">May 2024 - August 2024</span>
                     </div>
                     <p className="text-gray-400">VERYFY</p>
