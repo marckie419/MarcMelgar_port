@@ -580,6 +580,54 @@ export default function Component() {
                     </Button>
                   </div>
                 </div>
+                {/* Aticus Project Card */}
+                <div
+                  className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
+                >
+                  <div className="aspect-video min-h-[180px] relative rounded-lg overflow-hidden group cursor-pointer bg-[#101014] flex items-center justify-center p-4"
+                    onClick={() => window.open("https://aticus.netlify.app/", "_blank")}
+                  >
+                    <Image
+                      src="/aticus-screenshot.png"
+                      alt="Aticus Platform"
+                      fill
+                      className="object-contain object-center transition-transform duration-300 group-hover:scale-105"
+                      priority
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white hover:text-blue-400 transition-colors duration-300">
+                    Aticus: Legal Document Management Platform
+                  </h3>
+                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
+                    Aticus is a secure and user-friendly platform designed for attorney clients to easily track and manage their case documents. The dashboard displays recent activity with clear status labels like Approved, Pending, and In Progress, keeping clients informed at every step.
+
+                    With features like file upload, creation, and editing, Aticus makes collaboration simple and efficient. Organized folders and real-time updates ensure clients stay in control of their legal processes with clarity and ease.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="bg-blue-600 text-white hover:scale-110 transition-transform duration-300">
+                      Legal Tech
+                    </Badge>
+                    <Badge className="bg-green-600 text-white hover:scale-110 transition-transform duration-300">
+                      Document Management
+                    </Badge>
+                    <Badge className="bg-purple-600 text-white hover:scale-110 transition-transform duration-300">
+                      Client Portal
+                    </Badge>
+                    <Badge className="bg-orange-500 text-white hover:scale-110 transition-transform duration-300">
+                      Real-time Updates
+                    </Badge>
+                  </div>
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
+                      onClick={() => window.open("https://aticus.netlify.app/", "_blank")}
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </div>
               </div>
             </section>
 
