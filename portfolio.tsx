@@ -580,6 +580,53 @@ export default function Component() {
                     </Button>
                   </div>
                 </div>
+                {/* Trivialock Project Card */}
+                <div
+                  className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10"
+                >
+                  <div className="aspect-video relative rounded-lg overflow-hidden group cursor-pointer"
+                    onClick={() => window.open("#", "_blank")}
+                  >
+                    <Image
+                      src="/Trivialock.png"
+                      alt="Trivialock Project"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      priority
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white hover:text-purple-400 transition-colors duration-300">
+                    Trivialock: Secure Password Manager
+                  </h3>
+                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
+                    TriviaLock creates strong, secure passwords using answers to fun personal trivia questions. It's fast, private, and easy to use — so you can remember your passwords without writing them down.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge className="bg-purple-600 text-white hover:scale-110 transition-transform duration-300">
+                      Memory-Based Security
+                    </Badge>
+                    <Badge className="bg-indigo-600 text-white hover:scale-110 transition-transform duration-300">
+                      Password Generation
+                    </Badge>
+                    <Badge className="bg-pink-600 text-white hover:scale-110 transition-transform duration-300">
+                      Privacy-Focused
+                    </Badge>
+                    <Badge className="bg-cyan-600 text-white hover:scale-110 transition-transform duration-300">
+                      Easy to Use
+                    </Badge>
+                  </div>
+                  <div className="flex gap-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
+                      onClick={() => window.open("#", "_blank")}
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </div>
+
                 {/* Aticus Project Card */}
                 <div
                   className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
