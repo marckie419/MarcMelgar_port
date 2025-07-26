@@ -1,13 +1,11 @@
 "use client"
 
-import type React from "react"
-
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Mail, Linkedin, MapPin, Phone, Download } from "lucide-react"
 import { jsPDF } from "jspdf"
-import { useState, useEffect } from "react"
 
 export default function Component() {
   const [isVisible, setIsVisible] = useState(false)
@@ -51,6 +49,9 @@ export default function Component() {
     email: "",
     message: "",
   })
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [expandedProjects, setExpandedProjects] = useState<{[key: string]: boolean}>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
@@ -486,11 +487,11 @@ export default function Component() {
 
             {/* Featured Projects */}
             <section className="animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-6 text-white">
+              <h2 className="text-3xl font-bold mb-8 text-white">
                 Featured Projects
               </h2>
-              <div className="grid gap-6">
-                <div className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div className="bg-[#18191b] rounded-xl p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/10 h-full flex flex-col">
                   <div className="aspect-video relative rounded-lg overflow-hidden group">
                     <Image
                       src="/bote-project.png"
@@ -502,14 +503,22 @@ export default function Component() {
                   <h3 className="text-xl font-semibold text-white hover:text-blue-400 transition-colors duration-300">
                     BOTE: Bin Optimizer for Trash and Ecology
                   </h3>
-                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
-                    Developed "BOTE" (Bin Optimizer for Trash and Ecology), a prototype Reverse Vending Machine that
-                    encourages recycling by accepting plastic bottles and metal cans in exchange for coins. Using Rapid
-                    Application Development, the system integrates sensors, a crushing mechanism, and a coin dispenser
-                    to automate sorting and volume reduction. Designed to boost recycling participation and
-                    environmental awareness, the project received high marks for functionality and reliability from both
-                    users and experts.
-                  </p>
+                  <div className="space-y-2">
+                    <p className={`text-gray-300 transition-colors duration-300 ${!expandedProjects['bote'] ? 'line-clamp-3' : ''}`}>
+                      Developed "BOTE" (Bin Optimizer for Trash and Ecology), a prototype Reverse Vending Machine that
+                      encourages recycling by accepting plastic bottles and metal cans in exchange for coins. Using Rapid
+                      Application Development, the system integrates sensors, a crushing mechanism, and a coin dispenser
+                      to automate sorting and volume reduction. Designed to boost recycling participation and
+                      environmental awareness, the project received high marks for functionality and reliability from both
+                      users and experts.
+                    </p>
+                    <button 
+                      onClick={() => setExpandedProjects(prev => ({...prev, ['bote']: !prev['bote']}))}
+                      className="text-blue-400 text-sm hover:underline focus:outline-none"
+                    >
+                      {expandedProjects['bote'] ? 'Show Less' : 'Read More'}
+                    </button>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="bg-blue-600 text-white hover:scale-110 transition-transform duration-300">
                       Hardware Integration
@@ -552,9 +561,17 @@ export default function Component() {
                   <h3 className="text-xl font-semibold text-white hover:text-yellow-400 transition-colors duration-300">
                     AniLink: Empowering Filipino Farmers
                   </h3>
-                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
-                    AniLink is a web-based platform that connects Filipino farmers directly with buyers to sell their harvested palay (unmilled rice). The platform aims to promote fair pricing, reduce middlemen, and empower local agriculture through digital innovation.
-                  </p>
+                  <div className="space-y-2">
+                    <p className={`text-gray-300 transition-colors duration-300 ${!expandedProjects['anilink'] ? 'line-clamp-3' : ''}`}>
+                      AniLink is a web-based platform that connects Filipino farmers directly with buyers to sell their harvested palay (unmilled rice). The platform aims to promote fair pricing, reduce middlemen, and empower local agriculture through digital innovation.
+                    </p>
+                    <button 
+                      onClick={() => setExpandedProjects(prev => ({...prev, ['anilink']: !prev['anilink']}))}
+                      className="text-blue-400 text-sm hover:underline focus:outline-none"
+                    >
+                      {expandedProjects['anilink'] ? 'Show Less' : 'Read More'}
+                    </button>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="bg-yellow-500 text-white hover:scale-110 transition-transform duration-300">
                       Web Platform
@@ -581,9 +598,7 @@ export default function Component() {
                   </div>
                 </div>
                 {/* Trivialock Project Card */}
-                <div
-                  className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10"
-                >
+                <div className="bg-[#18191b] rounded-xl p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/10 h-full flex flex-col">
                   <div className="aspect-video relative rounded-lg overflow-hidden group cursor-pointer"
                     onClick={() => window.open("https://trivialock.netlify.app/", "_blank")}
                   >
@@ -598,9 +613,17 @@ export default function Component() {
                   <h3 className="text-xl font-semibold text-white hover:text-purple-400 transition-colors duration-300">
                     Trivialock: Secure Password Manager
                   </h3>
-                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
-                    TriviaLock creates strong, secure passwords using answers to fun personal trivia questions. It's fast, private, and easy to use — so you can remember your passwords without writing them down.
-                  </p>
+                  <div className="space-y-2">
+                    <p className={`text-gray-300 transition-colors duration-300 ${!expandedProjects['trivialock'] ? 'line-clamp-3' : ''}`}>
+                      TriviaLock creates strong, secure passwords using answers to fun personal trivia questions. It's fast, private, and easy to use — so you can remember your passwords without writing them down.
+                    </p>
+                    <button 
+                      onClick={() => setExpandedProjects(prev => ({...prev, ['trivialock']: !prev['trivialock']}))}
+                      className="text-blue-400 text-sm hover:underline focus:outline-none"
+                    >
+                      {expandedProjects['trivialock'] ? 'Show Less' : 'Read More'}
+                    </button>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="bg-purple-600 text-white hover:scale-110 transition-transform duration-300">
                       Memory-Based Security
@@ -631,7 +654,7 @@ export default function Component() {
                 <div
                   className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/10"
                 >
-                  <div className="aspect-video min-h-[180px] relative rounded-lg overflow-hidden group cursor-pointer bg-[#101014] flex items-center justify-center p-4"
+                  <div className="aspect-video min-h-[180px] relative rounded-lg overflow-hidden group cursor-pointer bg-[#101014] flex items-center justify-center p-4 mb-4"
                     onClick={() => window.open("https://aticus.netlify.app/", "_blank")}
                   >
                     <Image
@@ -645,11 +668,17 @@ export default function Component() {
                   <h3 className="text-xl font-semibold text-white hover:text-blue-400 transition-colors duration-300">
                     Aticus: Legal Document Management Platform
                   </h3>
-                  <p className="text-gray-300 hover:text-white transition-colors duration-300">
-                    Aticus is a secure and user-friendly platform designed for attorney clients to easily track and manage their case documents. The dashboard displays recent activity with clear status labels like Approved, Pending, and In Progress, keeping clients informed at every step.
-
-                    With features like file upload, creation, and editing, Aticus makes collaboration simple and efficient. Organized folders and real-time updates ensure clients stay in control of their legal processes with clarity and ease.
-                  </p>
+                  <div className="space-y-2">
+                    <p className={`text-gray-300 transition-colors duration-300 ${!expandedProjects['aticus'] ? 'line-clamp-3' : ''}`}>
+                      Aticus is a secure and user-friendly platform designed for attorney clients to easily track and manage their case documents. The dashboard displays recent activity with clear status labels like Approved, Pending, and In Progress, keeping clients informed at every step. With features like file upload, creation, and editing, Aticus makes collaboration simple and efficient. Organized folders and real-time updates ensure clients stay in control of their legal processes with clarity and ease.
+                    </p>
+                    <button 
+                      onClick={() => setExpandedProjects(prev => ({...prev, ['aticus']: !prev['aticus']}))}
+                      className="text-blue-400 text-sm hover:underline focus:outline-none"
+                    >
+                      {expandedProjects['aticus'] ? 'Show Less' : 'Read More'}
+                    </button>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="bg-blue-600 text-white hover:scale-110 transition-transform duration-300">
                       Legal Tech
