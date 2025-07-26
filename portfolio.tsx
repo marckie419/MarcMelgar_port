@@ -585,7 +585,7 @@ export default function Component() {
                   className="bg-[#18191b] rounded-lg p-6 space-y-4 hover:bg-[#23262b] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10"
                 >
                   <div className="aspect-video relative rounded-lg overflow-hidden group cursor-pointer"
-                    onClick={() => window.open("#", "_blank")}
+                    onClick={() => window.open("https://trivialock.netlify.app/", "_blank")}
                   >
                     <Image
                       src="/Trivialock.png"
@@ -620,7 +620,7 @@ export default function Component() {
                       variant="outline"
                       size="sm"
                       className="bg-transparent border-gray-600 text-white hover:bg-gray-700 transition-all duration-300 hover:scale-105"
-                      onClick={() => window.open("#", "_blank")}
+                      onClick={() => window.open("https://trivialock.netlify.app/", "_blank")}
                     >
                       View Details
                     </Button>
